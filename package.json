@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "biome lint ./src",
+    "fmt": "biome format ./src",
+    "fix": "biome check --apply ./src",
+    "fix:unsafe": "biome check --apply-unsafe ./src",
+    "postinstall": "husky install",
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
     "pages:watch": "npx @cloudflare/next-on-pages --watch",
@@ -22,7 +26,10 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "biome": "^0.3.3",
+    "husky": "^8.0.3",
     "typescript": "^5",
-    "vercel": "^33.0.1"
+    "vercel": "^33.0.1",
+    "vitest": "^1.1.1"
   }
 }
