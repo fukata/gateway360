@@ -17,6 +17,7 @@
     "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-date=2023-12-18 --compatibility-flag=nodejs_compat"
   },
   "dependencies": {
+    "hono": "^3.11.12",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
