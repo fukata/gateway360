@@ -1,0 +1,9 @@
+name = "gateway360"
+compatibility_date = "2023-12-31"
+
+[[d1_databases]]
+migrations_dir = "drizzle/migrations"
+binding = "DB" # Should match preview_database_id
+database_name = "gateway360"
+database_id = "3270e106-90f6-409c-a781-8bc1268f5b1b" # wrangler d1 info YOUR_DATABASE_NAME
+preview_database_id = "DB" # Required for Pages local development

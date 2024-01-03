@@ -14,20 +14,27 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
     "pages:watch": "npx @cloudflare/next-on-pages --watch",
-    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-date=2023-12-18 --compatibility-flag=nodejs_compat"
+    "pages:dev": "npm run pages:build && npx wrangler pages dev .vercel/output/static --compatibility-date=2023-12-18 --compatibility-flag=nodejs_compat",
+    "db:generate": "drizzle-kit generate:sqlite --schema ./src --out ./drizzle/migrations",
+    "db:migrate:local": "npx wrangler d1 migrations apply gateway360 --local"
   },
   "dependencies": {
+    "@tsndr/cloudflare-worker-jwt": "^2.3.2",
+    "drizzle-orm": "^0.29.3",
     "hono": "^3.11.12",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "valibot": "^0.25.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.8.3",
+    "@cloudflare/workers-types": "^4.20231218.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "biome": "^0.3.3",
+    "drizzle-kit": "^0.20.9",
     "husky": "^8.0.3",
     "typescript": "^5",
     "vercel": "^33.0.1",
